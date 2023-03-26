@@ -26,4 +26,4 @@ jobs:
           distribution: 'temurin'
       - name: Test
         run: 
-          mvn -pl dmestore-service edu.illinois:nondex-maven-plugin:1.1.2:nondex -DnondexRuns=10 -Dtest=com.huawei.dmestore.services.VmfsOperationServiceImplTest.expandVmfs -DfailIfNoTests=false
+          mvn -pl dmestore-service edu.illinois:nondex-maven-plugin:2.1.1:nondex -DnondexRuns=15 -Dtest=com.huawei.dmestore.services.VmfsOperationServiceImplTest.expandVmfs -DfailIfNoTests=false
