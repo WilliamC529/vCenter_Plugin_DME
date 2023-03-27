@@ -36,6 +36,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 
 /**
  * DmeAccessServiceImpl Tester.
@@ -111,7 +112,7 @@ public class DmeAccessServiceImplTest {
         params.put("hostIp", hostIp);
         params.put("hostPort", hostPort);
         HttpHeaders headers = getHeaders(null);
-        Map<String, Object> requestbody = new HashMap<>(16);
+        Map<String, Object> requestbody = new LinkedHashMap<>(16);
         requestbody.put("grantType", "password");
         requestbody.put("userName", userName);
         requestbody.put("value", password);
