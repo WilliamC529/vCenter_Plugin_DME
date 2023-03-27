@@ -106,7 +106,7 @@ public class DmeAccessServiceImplTest {
     }
 
     private void login() throws Exception {
-        Map<String, Object> params = new HashMap<>();
+        Map<String, Object> params = new LinkedHashMap<>();
         params.put("userName", userName);
         params.put("password", password);
         params.put("hostIp", hostIp);
@@ -140,7 +140,7 @@ public class DmeAccessServiceImplTest {
      */
     @Test
     public void testAccessDme() throws Exception {
-        Map<String, Object> params = new HashMap<>();
+        Map<String, Object> params = new LinkedHashMap<>();
         params.put("userName", userName);
         params.put("password", password);
         params.put("hostIp", hostIp);
@@ -243,7 +243,7 @@ public class DmeAccessServiceImplTest {
     @Test
     public void testGetDmeHosts() throws Exception {
         String hostIp = "10.143.133.17";
-        Map<String, Object> requestbody = new HashMap<>(16);
+        Map<String, Object> requestbody = new LinkedHashMap<>(16);
         requestbody.put("ip", hostIp);
         String getHostsUrl = baseUrl + "/rest/hostmgmt/v1/hosts/summary";
         HttpHeaders headers = getHeaders("111");
@@ -261,7 +261,7 @@ public class DmeAccessServiceImplTest {
     @Test
     public void testGetDmeHostInitiators() throws Exception {
         String hostId = "1111";
-        Map<String, Object> requestbody = new HashMap<>(16);
+        Map<String, Object> requestbody = new LinkedHashMap<>(16);
         requestbody.put("ip", hostIp);
         String url = baseUrl + "/rest/hostmgmt/v1/hosts/{host_id}/initiators";
         url = url.replace("{host_id}", hostId);
@@ -280,7 +280,7 @@ public class DmeAccessServiceImplTest {
     @Test
     public void testGetDmeHostGroups() throws Exception {
         String hostGroupName = "domain-c1087";
-        Map<String, Object> requestbody = new HashMap<>(16);
+        Map<String, Object> requestbody = new LinkedHashMap<>(16);
         requestbody.put("name", hostGroupName);
         String url = baseUrl + "/rest/hostmgmt/v1/hostgroups/summary";
         HttpHeaders headers = getHeaders("111");
@@ -300,7 +300,7 @@ public class DmeAccessServiceImplTest {
     public void testCreateHost() throws Exception {
         String hostId = "1456";
         String host = "10.143.132.17";
-        Map<String, Object> hbamap = new HashMap<>(16);
+        Map<String, Object> hbamap = new LinkedHashMap<>(16);
         hbamap.put("type", "131");
         hbamap.put("name", "tes");
         when(vcsdkUtils.getHbaByHostObjectId(hostId)).thenReturn(hbamap);
@@ -316,7 +316,7 @@ public class DmeAccessServiceImplTest {
         initiator.put("port_name", hbamap.get("name"));
         initiators.add(initiator);
         requestbody.put("initiator", initiators);
-        Map<String, Object> params = new HashMap<>(16);
+        Map<String, Object> params = new LinkedHashMap<>(16);
         params.put("host", host);
         params.put("hostId", hostId);
         String url = baseUrl + "/rest/hostmgmt/v1/hosts";
@@ -340,7 +340,7 @@ public class DmeAccessServiceImplTest {
         Map requestbody = new LinkedHashMap<>(16);
         requestbody.put("name", host);
         requestbody.put("host_ids", hostId);
-        Map<String, Object> params = new HashMap<>(16);
+        Map<String, Object> params = new LinkedHashMap<>(16);
         params.put("cluster", host);
         params.put("hostids", hostId);
         String url = baseUrl + "/rest/hostmgmt/v1/hostgroups";
@@ -360,10 +360,10 @@ public class DmeAccessServiceImplTest {
     public void testGetDmeHost() throws Exception {
         String hostId = "1456";
         String host = "10.143.132.17";
-        Map requestbody = new HashMap<>(16);
+        Map requestbody = new LinkedHashMap<>(16);
         requestbody.put("name", host);
         requestbody.put("host_ids", hostId);
-        Map<String, Object> params = new HashMap<>(16);
+        Map<String, Object> params = new LinkedHashMap<>(16);
         params.put("cluster", host);
         params.put("hostids", hostId);
         String url = baseUrl + "/rest/hostmgmt/v1/hosts/{host_id}/summary";
@@ -429,7 +429,7 @@ public class DmeAccessServiceImplTest {
 
         String url = baseUrl + "/rest/hostmgmt/v1/hostgroups/{hostgroup_id}/hosts/list";
         url = url.replace("{hostgroup_id}", hostGroupId);
-        Map<String, Object> requestbody = new HashMap<>(16);
+        Map<String, Object> requestbody = new LinkedHashMap<>(16);
         HttpHeaders headers = getHeaders("111");
         HttpEntity<String> entity = new HttpEntity<>(gson.toJson(requestbody), headers);
         String jsonData = "{\"hosts\": [{\"id\": \"1231\",\"name\": \"10.143.132.17\",\"ip\": \"1\"}]}";
