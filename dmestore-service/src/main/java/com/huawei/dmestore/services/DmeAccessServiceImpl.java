@@ -489,7 +489,7 @@ public class DmeAccessServiceImpl implements DmeAccessService {
                 // 得到主机的hba信息
                 Map<String, Object> hbamap = vcsdkUtils.getHbaByHostObjectId(ToolUtils.getStr(params.get("hostId")));
                 List<Map<String, Object>> initiators = new ArrayList<>();
-                Map<String, Object> initiator = new HashMap<>(DmeConstants.COLLECTION_CAPACITY_16);
+                Map<String, Object> initiator = new LinkedHashMap<>(DmeConstants.COLLECTION_CAPACITY_16);
                 initiator.put(PROTOCOL, ToolUtils.getStr(hbamap.get(TYPE_FIELD)));
                 initiator.put(PORT_NAME, ToolUtils.getStr(hbamap.get(NAME_FIELD)));
                 initiators.add(initiator);
