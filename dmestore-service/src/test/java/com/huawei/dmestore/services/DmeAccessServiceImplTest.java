@@ -311,7 +311,7 @@ public class DmeAccessServiceImplTest {
         requestbody.put("ip", host);
         requestbody.put("host_name", host);
         List<Map<String, Object>> initiators = new ArrayList<>();
-        Map<String, Object> initiator = new HashMap<>(16);
+        Map<String, Object> initiator = new LinkedHashMap<>(16);
         initiator.put("protocol", hbamap.get("type"));
         initiator.put("port_name", hbamap.get("name"));
         initiators.add(initiator);
