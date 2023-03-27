@@ -305,7 +305,7 @@ public class DmeAccessServiceImplTest {
         hbamap.put("name", "tes");
         when(vcsdkUtils.getHbaByHostObjectId(hostId)).thenReturn(hbamap);
 
-        Map requestbody = new HashMap<>(16);
+        Map requestbody = new LinkedHashMap<>(16);
         requestbody.put("access_mode", "NONE");
         requestbody.put("type", "VMWAREESX");
         requestbody.put("ip", host);
