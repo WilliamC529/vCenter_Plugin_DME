@@ -493,7 +493,7 @@ public class DmeAccessServiceImpl implements DmeAccessService {
                 initiator.put(PROTOCOL, ToolUtils.getStr(hbamap.get(TYPE_FIELD)));
                 initiator.put(PORT_NAME, ToolUtils.getStr(hbamap.get(NAME_FIELD)));
                 initiators.add(initiator);
-                Map<String, Object> requestbody = new HashMap<>(DmeConstants.COLLECTION_CAPACITY_16);
+                Map<String, Object> requestbody = new LinkedHashMap<>(DmeConstants.COLLECTION_CAPACITY_16);
                 requestbody.put(ACCESS_MODE_FIELD, "NONE");
                 requestbody.put(TYPE_FIELD, "VMWAREESX");
                 requestbody.put(IP_FIELD, params.get("host"));
