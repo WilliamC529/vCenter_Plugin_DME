@@ -34,6 +34,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 
 /**
  * DmeAccessServiceImpl
@@ -258,7 +259,7 @@ public class DmeAccessServiceImpl implements DmeAccessService {
         dmeToken = null;
         if (params != null && params.get(DmeConstants.HOSTIP) != null) {
             HttpHeaders headers = getHeaders();
-            Map<String, Object> requestbody = new HashMap<>(DmeConstants.COLLECTION_CAPACITY_16);
+            Map<String, Object> requestbody = new LinkedHashMap<>(DmeConstants.COLLECTION_CAPACITY_16);
             requestbody.put("grantType", PASSWORD);
             requestbody.put(USER_NAME, params.get(USER_NAME));
             requestbody.put("value", params.get(PASSWORD));
