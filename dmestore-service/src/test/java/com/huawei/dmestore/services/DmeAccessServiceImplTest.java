@@ -337,7 +337,7 @@ public class DmeAccessServiceImplTest {
     public void testCreateHostGroup() throws Exception {
         String hostId = "1456";
         String host = "10.143.132.17";
-        Map requestbody = new HashMap<>(16);
+        Map requestbody = new LinkedHashMap<>(16);
         requestbody.put("name", host);
         requestbody.put("host_ids", hostId);
         Map<String, Object> params = new HashMap<>(16);
