@@ -528,7 +528,7 @@ public class DmeAccessServiceImpl implements DmeAccessService {
             if (params != null && params.get(DmeConstants.CLUSTER) != null
                 && params.get(DmeConstants.HOSTIDS) != null) {
                 // 判断该集群下有多少主机，如果主机在DME不存在就需要创建
-                requestbody = new HashMap<>(DmeConstants.COLLECTION_CAPACITY_16);
+                requestbody = new LinkedHashMap<>(DmeConstants.COLLECTION_CAPACITY_16);
                 requestbody.put(NAME_FIELD, params.get("cluster").toString());
                 requestbody.put("host_ids", params.get("hostids"));
 
